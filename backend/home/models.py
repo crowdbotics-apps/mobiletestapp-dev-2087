@@ -47,3 +47,8 @@ class Test(models.Model):
 class Asdsds(models.Model):
     "Generated Model"
     asdsa = models.BigIntegerField()
+
+
+class SS(models.Model):
+    "Generated Model"
+    asA = models.BigIntegerField()

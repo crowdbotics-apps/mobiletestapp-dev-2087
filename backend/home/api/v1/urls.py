@@ -5,6 +5,7 @@ from .viewsets import (
     CustomTextViewSet,
     HomePageViewSet,
     SomeModelViewSet,
+    SSViewSet,
     TestViewSet,
 )
 
@@ -23,6 +24,7 @@ router.register("homepage", HomePageViewSet)
 router.register("somemodel", SomeModelViewSet)
 router.register("test", TestViewSet)
 router.register("asdsds", AsdsdsViewSet)
+router.register("ss", SSViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
