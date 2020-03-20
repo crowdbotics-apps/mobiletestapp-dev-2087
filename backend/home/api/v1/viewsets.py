@@ -1,3 +1,12 @@
+from rest_framework import viewsets
+from rest_framework import authentication
+from .serializers import (
+    AsdsdsSerializer,
+    CustomTextSerializer,
+    HomePageSerializer,
+    SomeModelSerializer,
+    TestSerializer,
+)
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.permissions import IsAdminUser
@@ -11,7 +20,7 @@ from home.api.v1.serializers import (
     HomePageSerializer,
     UserSerializer,
 )
-from home.models import CustomText, HomePage
+from home.models import Asdsds, CustomText, HomePage, SomeModel, Test
 
 
 class SignupViewSet(ModelViewSet):
@@ -49,3 +58,30 @@ class HomePageViewSet(ModelViewSet):
     authentication_classes = (SessionAuthentication, TokenAuthentication)
     permission_classes = [IsAdminUser]
     http_method_names = ["get", "put", "patch"]
+
+
+class SomeModelViewSet(viewsets.ModelViewSet):
+    serializer_class = SomeModelSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = SomeModel.objects.all()
+
+
+class TestViewSet(viewsets.ModelViewSet):
+    serializer_class = TestSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Test.objects.all()
+
+
+class AsdsdsViewSet(viewsets.ModelViewSet):
+    serializer_class = AsdsdsSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Asdsds.objects.all()
